@@ -27,115 +27,22 @@ type Service = {
   id: string;
   title: string;
   price: number | null;
-  unit: string;
-  summary: string;
-  detail: string;
+  note?: string;
 };
 
-// Die veröffentlichte Preisliste nennt Einstiegspreise ohne Angabe einer Einheit.
+// The workshop publishes starting prices without a per-wheel or per-hour rate.
 export const services: Service[] = [
-  {
-    id: 'inspektion',
-    title: 'Inspektion',
-    price: 40,
-    unit: '',
-    summary: 'Wir prüfen Ihr Fahrzeug und führen die fälligen Wartungsarbeiten durch.',
-    detail: 'Welche Arbeiten anstehen, hängt vom Fahrzeug und seinem Wartungsintervall ab. Halten Sie für die Terminabsprache am besten den Kilometerstand bereit.',
-  },
-  {
-    id: 'hu-au',
-    title: 'HU/AU und Nachuntersuchung',
-    price: 150,
-    unit: '',
-    summary: 'Bei uns können Sie einen Termin für die HU mit Abgasuntersuchung oder für die Nachuntersuchung vereinbaren.',
-    detail: 'Bringen Sie zur Hauptuntersuchung den Fahrzeugschein mit. Für die Nachuntersuchung brauchen Sie auch den letzten Prüfbericht.',
-  },
-  {
-    id: 'fahrzeugdiagnose',
-    title: 'Fahrzeugdiagnose',
-    price: 20,
-    unit: '',
-    summary: 'Wir lesen den Fehlerspeicher aus und gehen der Ursache auf den Grund.',
-    detail: 'Leuchtet eine Warnlampe oder tritt der Fehler nur beim Fahren auf? Beschreiben Sie uns bei der Terminabsprache, wann Sie ihn bemerken.',
-  },
-  {
-    id: 'reifenwechsel',
-    title: 'Reifen- und Räderwechsel',
-    price: 10,
-    unit: '',
-    summary: 'Wir wechseln Kompletträder oder montieren und wuchten Reifen.',
-    detail: 'Sagen Sie uns bei der Terminabsprache, ob Sie bereits montierte Räder mitbringen. Für Ihren zweiten Radsatz bieten wir auch eine Einlagerung an.',
-  },
-  {
-    id: 'klimawartung',
-    title: 'Klimawartung',
-    price: 70,
-    unit: '',
-    summary: 'Wir prüfen die Klimaanlage und füllen bei Bedarf Kältemittel nach.',
-    detail: 'Wenn die Anlage kaum noch kühlt, prüfen wir, wo das Problem liegt.',
-  },
-  {
-    id: 'bremsenwechsel',
-    title: 'Bremsenwechsel',
-    price: 40,
-    unit: '',
-    summary: 'Wir prüfen die Bremsanlage und tauschen verschlissene Beläge oder Scheiben.',
-    detail: 'Sagen Sie uns, wenn die Bremsen Geräusche machen oder beim Bremsen das Lenkrad vibriert.',
-  },
-  {
-    id: 'scheibenwechsel',
-    title: 'Scheibenwechsel',
-    price: 250,
-    unit: '',
-    summary: 'Wir ersetzen beschädigte Front-, Seiten- und Heckscheiben.',
-    detail: 'Geben Sie bei Ihrer Anfrage bitte das Fahrzeugmodell und die betroffene Scheibe an.',
-  },
-  {
-    id: 'motor',
-    title: 'Motorservice',
-    price: null,
-    unit: '',
-    summary: 'Wir warten und reparieren Motoren.',
-    detail: 'Wir prüfen auch Verschleißteile wie Luftfilter und Zündkerzen und tauschen sie bei Bedarf aus.',
-  },
-  {
-    id: 'getriebe',
-    title: 'Getriebeservice',
-    price: null,
-    unit: '',
-    summary: 'Wir prüfen das Getriebe auf Verschleiß und beheben Schäden.',
-    detail: 'Falls das Getriebe ruckelt oder einzelne Gänge schwer einzulegen sind, schildern Sie uns das Problem bei der Terminabsprache.',
-  },
-  {
-    id: 'abschleppen',
-    title: 'Deutschlandweiter Abschleppservice',
-    price: null,
-    unit: '',
-    summary: 'Wir holen nicht fahrbereite Autos deutschlandweit ab und bringen sie zu unserer Werkstatt.',
-    detail: 'Nennen Sie uns bei Ihrer Anfrage den Standort und das Modell des Fahrzeugs.',
-  },
-  {
-    id: 'oelwechsel',
-    title: 'Ölwechsel',
-    price: null,
-    unit: '',
-    summary: 'Wir wechseln das Motoröl und prüfen den Ölfilter.',
-    detail: 'Bei Bedarf ersetzen wir auch den Ölfilter.',
-  },
-  {
-    id: 'unfallinstandsetzung',
-    title: 'Unfallinstandsetzung',
-    price: null,
-    unit: '',
-    summary: 'Wir reparieren Fahrzeuge nach einem Unfall.',
-    detail: 'Beschreiben Sie uns den Schaden und teilen Sie uns mit, ob Ihr Fahrzeug noch fahrbereit ist.',
-  },
-  {
-    id: 'autopflege',
-    title: 'Autopflege und Reinigung',
-    price: null,
-    unit: '',
-    summary: 'Wir übernehmen die Pflege und Reinigung Ihres Fahrzeugs.',
-    detail: 'Sprechen Sie mit uns darüber, was an Ihrem Fahrzeug gereinigt werden soll.',
-  },
+  { id: 'inspektion', title: 'Inspektion', price: 40, note: 'Wartung nach Kilometerstand und Intervall' },
+  { id: 'hu-au', title: 'HU/AU', price: 150, note: 'Auch Termine zur Nachuntersuchung' },
+  { id: 'fahrzeugdiagnose', title: 'Fahrzeugdiagnose', price: 20, note: 'Fehlerspeicher auslesen und Ursache prüfen' },
+  { id: 'reifenwechsel', title: 'Reifen- und Räderwechsel', price: 10, note: 'Einlagerung auf Anfrage' },
+  { id: 'klimawartung', title: 'Klimawartung', price: 70, note: 'Klimaanlage und Kühlleistung prüfen' },
+  { id: 'bremsenwechsel', title: 'Bremsenwechsel', price: 40, note: 'Bremsbeläge und Bremsscheiben' },
+  { id: 'scheibenwechsel', title: 'Scheibenwechsel', price: 250, note: 'Front-, Seiten- und Heckscheiben' },
+  { id: 'motor', title: 'Motorservice', price: null },
+  { id: 'getriebe', title: 'Getriebeservice', price: null },
+  { id: 'abschleppen', title: 'Deutschlandweiter Abschleppservice', price: null },
+  { id: 'oelwechsel', title: 'Ölwechsel', price: null },
+  { id: 'unfallinstandsetzung', title: 'Unfallinstandsetzung', price: null },
+  { id: 'autopflege', title: 'Autopflege und Reinigung', price: null },
 ];

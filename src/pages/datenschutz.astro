@@ -1,19 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { workshop } from '../data/workshop';
+const onPages = process.env.DEMO_HOST === 'github-pages';
 ---
 
-<Layout title="Datenschutz" description="Datenschutzhinweise zur lokalen Vorschau von KaRo Motors.">
+<Layout title="Datenschutz" description="Datenschutzhinweise zur Website-Demo und zur Kontaktaufnahme mit KaRo Motors.">
   <article class="legal wrap">
     <h1>Datenschutz</h1>
-    <p>Diese Hinweise gelten für die lokale Vorschau. Angaben zum öffentlichen Betrieb werden vor einer Veröffentlichung ergänzt.</p>
+    <p>Diese Hinweise gelten für die Website-Demo. Wenn Sie die Werkstatt anrufen oder ihr eine E-Mail schicken, nehmen Sie direkt mit KaRo Motors Kontakt auf.</p>
 
     <h2>Aufruf der Vorschau</h2>
-    <p>
-      Die Vorschau lädt Bilder und Schriften lokal. Sie setzt keine Cookies und verwendet weder
-      Webanalyse noch Webspeicher im Browser. Angaben zum Hosting, zu möglichen Zugriffsprotokollen
-      und zur verantwortlichen Stelle für den öffentlichen Auftritt stehen noch aus.
-    </p>
+    {onPages ? (
+      <p>Diese Demo wird über GitHub Pages im GitHub-Konto <a href="https://github.com/SergeyShytikov/karo-motors-demo" rel="noreferrer">SergeyShytikov</a> veröffentlicht.
+        Beim Aufruf protokolliert und speichert GitHub die IP-Adresse zu Sicherheitszwecken. Bilder und Schriftarten kommen ebenfalls von dieser Website.
+        Weitere Informationen finden Sie in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noreferrer">Datenschutzerklärung von GitHub</a>.</p>
+    ) : (
+      <p>Beim direkten Öffnen der HTML-Dateien von Ihrem Gerät lädt die Vorschau Bilder und Schriftarten vom selben Gerät.</p>
+    )}
+    <p>Die Demo selbst setzt keine Cookies und verwendet weder Webanalyse noch Webspeicher im Browser.</p>
 
     <h2>Rückrufentwurf</h2>
     <p>
@@ -29,8 +33,7 @@ import { workshop } from '../data/workshop';
       Kontakt- und Inhaltsdaten. Angaben, die Sie für eine Terminanfrage oder einen Kostenvoranschlag
       machen, können für vorvertragliche Maßnahmen nach Art. 6 Abs. 1 Buchst. b DSGVO erforderlich
       sein. Ohne eine Rückrufnummer kann die Werkstatt Sie nicht zurückrufen. Die Details zur
-      Verarbeitung bei der Werkstatt, einschließlich Empfängern und Speicherdauer, sind vor einer
-      Veröffentlichung zu bestätigen.
+      Verarbeitung bei der Werkstatt, einschließlich Empfängern und Speicherdauer, können Sie bei der Werkstatt erfragen.
     </p>
     <address>
       {workshop.name} · {workshop.owner}<br />

@@ -100,9 +100,10 @@
   .price-grid { gap: .55rem; }
   .price-card > a { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: .3rem .65rem; padding: 1rem; }
   .price-card__heading { display: block; }
-  .price-card__heading .ui-icon { display: none; }
+  .price-card__heading .ui-icon { position: absolute; right: 1rem; bottom: .85rem; width: .75rem; }
+  .price-card > a { position: relative; }
   .price-card__note { grid-column: 1; margin: 0; font-size: .85rem; }
-  .price-card__price { grid-area: 1 / 2 / span 2 / 3; align-self: center; margin: 0; white-space: nowrap; font-size: 2.15rem; }
+  .price-card__price { grid-area: 1 / 2 / span 2 / 3; align-self: start; margin: 0; white-space: nowrap; font-size: 2rem; }
   .price-help { min-height: 6.5rem; }
   .request-grid a { min-height: 54px; }
 }

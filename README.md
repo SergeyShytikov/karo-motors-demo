@@ -21,9 +21,8 @@ Ein Push auf den Branch `demo` baut die Website mit GitHub Actions und veröffen
 
 ## Fotos
 
-Die Fotos illustrieren die Demo. Der Bildausschnitt auf der Startseite zeigt ein Fahrzeug, die Aufnahme auf der Preisseite ein Notebook im Innenraum. Alle drei Motive sind für das Layout zugeschnitten und werden als WebP von derselben Website geladen.
+Die Fotos illustrieren die Demo. Die Startseite zeigt Hände mit einem Ringschlüssel am Motor. Die Aufnahme auf der Preisseite zeigt ein Notebook im Fahrzeuginnenraum. Beide Motive sind für das Layout zugeschnitten und werden als WebP von derselben Website geladen.
 
-- Fahrzeug auf der Startseite: [Jay Pizzle auf Pexels](https://www.pexels.com/photo/red-ferrari-parked-on-a-garage-4756890/).
 - Arbeit am Motor: [Christian Buehner auf Pexels](https://www.pexels.com/photo/a-mechanic-working-on-a-car-engine-27665740/).
 - Notebook im Fahrzeug: [ThisIsEngineering auf Pexels](https://www.pexels.com/photo/engineer-testing-sound-system-3862610/).
 

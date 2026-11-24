@@ -12,7 +12,7 @@ const callback = (id: string) => `/kontakt/?leistung=${id}#rueckruf`;
 <Layout active="leistungen" title="Leistungen & Preise in Hennigsdorf" description="Einstiegspreise für Inspektion, HU/AU, Diagnose, Reifen und Reparaturen bei KaRo Motors in Hennigsdorf.">
   <header class="prices-hero">
     <div class="prices-hero__photo">
-      <img src="/media/diagnostic-laptop.webp" srcset="/media/diagnostic-laptop-small.webp 760w, /media/diagnostic-laptop.webp 1536w" sizes="(max-width: 600px) 100vw, 62vw" width="1536" height="1024" alt="" fetchpriority="high" />
+      <img src="/media/diagnostic-laptop.webp" srcset="/media/diagnostic-laptop-small.webp 760w, /media/diagnostic-laptop.webp 1536w" sizes="(max-width: 600px) 100vw, 62vw" width="1536" height="1025" alt="" fetchpriority="high" />
     </div>
     <div class="wrap prices-hero__body">
       <h1>Leistungen <span>&amp; Preise</span></h1>
@@ -32,12 +32,12 @@ const callback = (id: string) => `/kontakt/?leistung=${id}#rueckruf`;
       <div class="price-grid">
         {withPrice.map(service => (
           <article id={service.id} class="price-card">
-            <a href={callback(service.id)} aria-label={`${service.title} ab ${service.price} Euro, Rückruf anfragen`}>
+            <a href={callback(service.id)} aria-label={`${service.title} ab ${service.price} Euro, Rückruf anfragen`} aria-describedby={`note-${service.id}`}>
               <div class="price-card__heading">
                 <h3>{service.title}</h3>
                 <Icon name="arrow" />
               </div>
-              <p class="price-card__note">{service.note}</p>
+              <p class="price-card__note" id={`note-${service.id}`}>{service.note}</p>
               <p class="price-card__price"><small>ab</small> {service.price}<span> €</span></p>
             </a>
           </article>

@@ -27,6 +27,7 @@ h3 { font-size: 1.55rem; }
 a { color: inherit; text-underline-offset: 0.22em; }
 a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 3px solid #0872ae; outline-offset: 4px; }
+:is(.hero, .prices-hero, .footer, .price-help, .mobile-call) :focus-visible { outline-color: #ffc49c; }
 ::selection { background: #ffe0c2; color: #211c19; }
 button, input, select, textarea { font: inherit; }
 button, a { touch-action: manipulation; }
@@ -77,6 +78,11 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 840px) {
   .header-phone { display: none; }
+  .mobile-call { position: fixed; inset: auto 0 0; z-index: 5; display: grid; grid-template-columns: 1.4fr 1fr; background: var(--ink); padding-bottom: env(safe-area-inset-bottom); border-top: 1px solid #fff3; }
+  .mobile-call a { display: flex; justify-content: center; align-items: center; gap: .6rem; min-height: 3.4rem; color: white; text-decoration: none; font: 700 1.12rem var(--display); }
+  .mobile-call a:first-child { background: #b63c09; }
+  body { padding-bottom: calc(3.4rem + env(safe-area-inset-bottom)); }
+  html { scroll-padding-bottom: 4.2rem; }
   .header-inner { min-height: 77px; }
   .brand img { width: 98px; height: 59px; }
 }
@@ -89,11 +95,7 @@ img { display: block; max-width: 100%; }
   .home-link { display: none; }
   .foot-inner { flex-wrap: wrap; padding-block: 1.7rem; gap: 1.1rem 2rem; }
   .foot-inner nav { width: 100%; margin: 0; }
-  .mobile-call { position: fixed; inset: auto 0 0; z-index: 5; display: grid; grid-template-columns: 1.4fr 1fr; background: var(--ink); padding-bottom: env(safe-area-inset-bottom); border-top: 1px solid #fff3; }
-  .mobile-call a { display: flex; justify-content: center; align-items: center; gap: .6rem; min-height: 3.4rem; color: white; text-decoration: none; font: 700 1.12rem var(--display); }
-  .mobile-call a:first-child { background: #b63c09; }
-  body { padding-bottom: calc(3.4rem + env(safe-area-inset-bottom)); }
-  html { scroll-padding-bottom: 4.2rem; }
+
 }
 @media (max-width: 360px) {
   .nav-full { display: none; }

@@ -1,0 +1,400 @@
+.inner-page {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.inner-page :is(h1, h2, h3, p, figure, dl, dd) {
+  margin: 0;
+}
+
+.inner-page :is([id], input, select, textarea) {
+  scroll-margin-top: 6rem;
+}
+
+.inner-intro h1 {
+  font-size: clamp(2.65rem, 6vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.inner-intro h1 + p {
+  max-inline-size: 32ch;
+  margin-block-start: 1rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.55;
+}
+
+.inner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.inner-intro .inner-actions {
+  margin-block-start: 1.6rem;
+}
+
+.inner-actions .button {
+  min-height: 2.75rem;
+}
+
+.services-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  padding-block: clamp(2.25rem, 6vw, 5.25rem);
+}
+
+.services-hero__photo {
+  position: relative;
+  aspect-ratio: 1.55;
+  overflow: hidden;
+  border-radius: 0.45rem;
+  background: #282929;
+}
+
+.services-hero__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.services-hero__photo figcaption {
+  position: absolute;
+  inset-block-end: 0.75rem;
+  inset-inline-start: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 0.18rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.price-section {
+  padding-block: clamp(2.75rem, 6vw, 5rem);
+  border-block-start: 1px solid var(--line);
+}
+
+.price-list + .price-list {
+  margin-block-start: clamp(2.75rem, 6vw, 5rem);
+}
+
+.price-list__intro {
+  margin-block-end: 1.35rem;
+}
+
+.inner-page h2 {
+  font-size: clamp(1.65rem, 4vw, 2.9rem);
+  line-height: 1.07;
+  letter-spacing: -0.025em;
+}
+
+.price-list__intro p,
+.inner-booking p {
+  margin-block-start: 0.55rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.price-list__rows {
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.price-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: start;
+  gap: clamp(0.75rem, 2.5vw, 2.5rem);
+  padding: 1.15rem clamp(0.5rem, 2vw, 1.25rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.price-row:target {
+  background: #fae8dc;
+  box-shadow: inset 0.2rem 0 0 var(--orange);
+}
+
+.price-row h3 {
+  font-size: clamp(1.15rem, 2.3vw, 1.55rem);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.price-row__body p {
+  max-width: 66ch;
+  margin-block-start: 0.35rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.price-row__body h3 + p {
+  color: var(--ink);
+}
+
+.price-row__cost {
+  color: #ae370e;
+  text-align: end;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.price-row__cost strong {
+  font-size: clamp(1.25rem, 3vw, 1.95rem);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.price-row__cost small {
+  display: block;
+  margin-block-start: 0.2rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.price-row__link {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-block-size: 2.75rem;
+  color: #a53209;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.price-row__link img {
+  inline-size: 0.85rem;
+  block-size: 0.85rem;
+}
+
+.inner-booking {
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+  border-block: 1px solid var(--line);
+}
+
+.inner-booking__layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+}
+
+.contact {
+  padding-block: clamp(2.25rem, 6vw, 5.25rem);
+}
+
+.contact__intro {
+  margin-block-end: clamp(1.4rem, 3.5vw, 2.7rem);
+}
+
+.contact-card {
+  --contact-bg: #202529;
+  --contact-border: #58616a;
+  --contact-text: #fffaf5;
+  --contact-muted: #d6d9d8;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  padding: clamp(1.35rem, 4vw, 3.5rem);
+  border-radius: 0.45rem;
+  background: var(--contact-bg);
+  color: var(--contact-text);
+}
+
+.contact-card h2 {
+  margin-block-end: 1rem;
+  font-size: clamp(1.55rem, 2.7vw, 2.25rem);
+}
+
+.contact-card h3 {
+  margin-block-end: 0.5rem;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+
+.contact-details > section + section {
+  margin-block-start: 1.65rem;
+}
+
+.contact-details__phone {
+  display: block;
+  width: fit-content;
+  min-height: 2.75rem;
+  color: #ffa270;
+  font-size: clamp(1.28rem, 3vw, 2.15rem);
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.35;
+}
+
+.contact-details__email,
+.callback__privacy {
+  color: var(--contact-text);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
+
+.contact-details address {
+  margin-block-end: 0.9rem;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.contact-card .button.secondary {
+  border-color: #a4adb4;
+  color: var(--contact-text);
+  background: transparent;
+}
+
+.contact-card .button.secondary:hover {
+  background: #39424a;
+}
+
+.contact-hours {
+  max-inline-size: 26rem;
+  font-size: 0.94rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.contact-hours div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.85rem;
+  padding-block: 0.55rem;
+  border-block-start: 1px solid var(--contact-border);
+}
+
+.contact-hours dd {
+  color: var(--contact-muted);
+}
+
+.callback {
+  padding-inline-start: clamp(1.75rem, 4vw, 3.5rem);
+  border-inline-start: 1px solid var(--contact-border);
+}
+
+.callback-form:not([hidden]) {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.callback-form__pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.callback-form__field {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+  min-inline-size: 0;
+}
+
+.callback-form__field label {
+  font-weight: 650;
+  font-size: 0.9rem;
+}
+
+.callback-form__field label span {
+  color: var(--contact-muted);
+  font-weight: 400;
+}
+
+.callback-form__field :is(input, select, textarea) {
+  color-scheme: dark;
+  min-height: 2.85rem;
+  width: 100%;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid #838b94;
+  border-radius: 0.25rem;
+  background: #191e22;
+  color: var(--contact-text);
+  font: inherit;
+}
+
+.callback-form__field textarea {
+  resize: vertical;
+}
+
+.contact-card :focus-visible {
+  outline: 2px solid #ffb391;
+  outline-offset: 3px;
+}
+
+.callback-form__field [aria-invalid="true"] {
+  border-color: #ffad96;
+}
+
+.callback-form__error {
+  color: #ffb6a4;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.callback-help {
+  color: var(--contact-muted);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.callback-help a {
+  color: var(--contact-text);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.callback-form .button {
+  justify-self: start;
+  min-height: 2.85rem;
+}
+
+#callback-fallback p {
+  margin-block-end: 0.85rem;
+  color: var(--contact-muted);
+}
+
+.callback__privacy {
+  display: inline-block;
+  margin-block-start: 0.85rem;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 44rem) {
+  .services-hero,
+  .contact-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contact-card .callback {
+    padding-block-start: 1.6rem;
+    padding-inline-start: 0;
+    border-block-start: 1px solid var(--contact-border);
+    border-inline-start: 0;
+  }
+}
+
+@media (max-width: 28rem) {
+  .callback-form__pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .price-row:has(.price-row__link) {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.2rem;
+  }
+}

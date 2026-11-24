@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { workshop, services, homeCopy } from '../data/workshop';
+import '../styles/home.css';
+
+const featured = [
+  { id: 'inspektion', title: 'Inspektion', icon: 'inspection' },
+  { id: 'hu-au', title: 'HU / AU', icon: 'hu' },
+  { id: 'fahrzeugdiagnose', title: 'Diagnose', icon: 'diagnosis' },
+  { id: 'reifenwechsel', title: 'Reifenwechsel', icon: 'tyre' },
+].map(item => ({ ...item, price: services.find(service => service.id === item.id)!.price }));
+---
+<Layout active="home" title="Ihre Meisterwerkstatt in Hennigsdorf" description="KaRo Motors in Hennigsdorf. Entdecken Sie Werkstattleistungen und Einstiegspreise oder vereinbaren Sie telefonisch einen Termin.">
+  <section class="hero" aria-labelledby="hero-title">
+    <picture class="hero-photo">
+      <source media="(max-width: 650px)" srcset="/media/hero-small.webp" />
+      <img src="/media/hero.webp" alt="" width="1536" height="1024" fetchpriority="high" />
+    </picture>
+    <div class="wrap hero-inner">
+      <h1 id="hero-title">Ihre Meisterwerkstatt<br />in Hennigsdorf.</h1>
+      <p>{homeCopy.intro}</p>
+      <div class="hero-actions">
+        <a class="button primary" href={workshop.phoneHref}><Icon name="phone" />Jetzt anrufen</a>
+        <a class="button hero-secondary" href="/kontakt/#rueckruf">Rückruf anfragen</a>
+      </div>
+    </div>
+  </section>
+  <div class="quick-info">
+    <div class="wrap quick-inner">
+      <a href="/kontakt/#anfahrt"><Icon name="pin" /><span>{workshop.street}, {workshop.city}</span></a>
+      <a href="/kontakt/#oeffnungszeiten"><Icon name="clock" /><span>Mo–Fr {workshop.hours[0].time}<span class="hours-spacer"> / </span>Sa {workshop.hours[1].time}</span></a>
+    </div>
+  </div>
+  <section class="wrap service-section" aria-labelledby="service-title">
+    <div class="section-heading">
+      <h2 id="service-title">Werkstattleistungen & Preise</h2>
+      <a class="text-link" href="/leistungen/">Alle Leistungen <Icon name="arrow" /></a>
+    </div>
+    <div class="featured-services">
+      {featured.map(item => (
+        <a href={`/leistungen/#${item.id}`} class="service-tile">
+          <img class="service-icon" src={`/media/${item.icon}.webp`} alt="" width="72" height="72" />
+          <h3>{item.title}</h3>
+          <span class="service-price"><small>ab</small> {item.price} €</span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <section class="workshop-section wrap" aria-labelledby="about-title">
+    <div class="workshop-image">
+      <img src="/media/brake.webp" srcset="/media/brake-small.webp 760w, /media/brake.webp 1536w" sizes="(max-width: 720px) 100vw, 50vw" alt="Detailansicht einer freiliegenden Bremsscheibe" width="1536" height="1024" loading="lazy" />
+    </div>
+    <div class="about-copy">
+      <h2 id="about-title">{homeCopy.aboutTitle}</h2>
+      <p>{homeCopy.aboutBody}</p>
+      <p class="owner"><strong>{workshop.owner}</strong><br />Inhaber von KaRo Motors</p>
+      <a class="text-link" href="/kontakt/">Kontakt & Anfahrt <Icon name="arrow" /></a>
+    </div>
+  </section>
+</Layout>

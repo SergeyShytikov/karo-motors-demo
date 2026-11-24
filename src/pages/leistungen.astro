@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { services, workshop } from '../data/workshop';
+import '../styles/inner.css';
+
+const servicesWithPrices = services.filter(service => service.price !== null);
+const pricesOnRequest = services.filter(service => service.price === null);
+---
+
+<Layout
+  title="Leistungen & Preise in Hennigsdorf"
+  description="Leistungen und Einstiegspreise der Kfz-Meisterwerkstatt KaRo Motors in Hennigsdorf. Inspektion, HU/AU, Diagnose, Reifen und Reparaturen."
+  active="leistungen"
+>
+  <div class="inner-page">
+    <section class="wrap services-hero" aria-labelledby="services-title">
+      <div class="inner-intro">
+        <h1 id="services-title">Leistungen<br />& Preise</h1>
+        <p>Einstiegspreise für Wartung und Reparatur.</p>
+        <div class="inner-actions">
+          <a class="button primary" href="#preise">Zur Preisliste</a>
+          <a class="button secondary" href="/kontakt/#rueckruf">Rückruf anfragen</a>
+        </div>
+      </div>
+      <figure class="services-hero__photo">
+        <img
+          src="/media/brake.webp"
+          srcset="/media/brake-small.webp 760w, /media/brake.webp 1536w"
+          sizes="(max-width: 44rem) calc(100vw - 2rem), (max-width: 76rem) 48vw, 36rem"
+          width="1536"
+          height="1024"
+          alt="Nahaufnahme einer Autobremse"
+          fetchpriority="high"
+        />
+        <figcaption>Beispielfoto</figcaption>
+      </figure>
+    </section>
+
+    <div class="price-section">
+      <div class="wrap">
+        <section id="preise" class="price-list" aria-labelledby="price-list-title">
+          <div class="price-list__intro">
+            <h2 id="price-list-title">Preisliste</h2>
+            <p>Die Beträge sind Einstiegspreise. Fragen Sie uns nach dem Preis für Ihr Fahrzeug.</p>
+          </div>
+          <ul class="price-list__rows">
+            {servicesWithPrices.map(service => (
+              <li id={service.id} class="price-row">
+                <div class="price-row__body">
+                  <h3>{service.title}</h3>
+                  <p>{service.summary}</p>
+                  <p>{service.detail}</p>
+                </div>
+                <p class="price-row__cost">
+                  <span>ab <strong>{service.price} €</strong></span>
+                  {service.unit && <small>{service.unit}</small>}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+        {pricesOnRequest.length > 0 && (
+          <section class="price-list" aria-labelledby="price-request-title">
+            <div class="price-list__intro">
+              <h2 id="price-request-title">Preise auf Anfrage</h2>
+              <p>Teilen Sie uns bei Ihrer Anfrage mit, welches Fahrzeug Sie fahren und was gemacht werden soll.</p>
+            </div>
+            <ul class="price-list__rows">
+              {pricesOnRequest.map(service => (
+                <li id={service.id} class="price-row">
+                  <div class="price-row__body">
+                    <h3>{service.title}</h3>
+                    <p>{service.summary}</p>
+                    <p>{service.detail}</p>
+                  </div>
+                  <a
+                    class="price-row__link"
+                    href={`/kontakt/?leistung=${encodeURIComponent(service.id)}#rueckruf`}
+                    aria-label={`Preis erfragen für ${service.title}`}
+                  >Preis erfragen <Icon name="arrow" /></a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </div>
+    </div>
+
+    <section class="inner-booking" aria-labelledby="booking-title">
+      <div class="wrap inner-booking__layout">
+        <div>
+          <h2 id="booking-title">Termin vereinbaren</h2>
+          <p>Rufen Sie uns an oder bitten Sie um einen Rückruf.</p>
+        </div>
+        <div class="inner-actions">
+          <a class="button primary" href={workshop.phoneHref}>{workshop.phone}</a>
+          <a class="button secondary" href="/kontakt/#rueckruf">Rückruf anfragen</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

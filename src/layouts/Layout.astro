@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import { workshop } from '../data/workshop';
+import Icon from '../components/Icon.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  active?: string;
+}
+const { title, description, active } = Astro.props;
+const navigation = [
+  { id: 'home', text: 'Startseite', mobile: 'Startseite', url: '/' },
+  { id: 'leistungen', text: 'Leistungen & Preise', mobile: 'Leistungen', url: '/leistungen/' },
+  { id: 'kontakt', text: 'Kontakt & Anfahrt', mobile: 'Kontakt', url: '/kontakt/' },
+];
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#202426" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/media/favicon.png" />
+    <title>{title} | KaRo Motors</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+    <header class="masthead">
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label="KaRo Motors – Startseite">
+          <img src="/media/karo-logo.webp" width="450" height="265" alt="KaRo Motors, Kfz-Meisterbetrieb" />
+        </a>
+        <nav aria-label="Hauptnavigation">
+          {navigation.map(({ id, text, mobile, url }) => (
+            <a href={url} class:list={['nav-link', { 'home-link': id === 'home' }]} aria-current={active === id ? 'page' : undefined}><span class="nav-full">{text}</span><span class="nav-short">{mobile}</span></a>
+          ))}
+        </nav>
+        <a class="header-phone" href={workshop.phoneHref}><Icon name="phone" />{workshop.phone}</a>
+      </div>
+    </header>
+    <main id="inhalt" tabindex="-1"><slot /></main>
+    <footer class="footer">
+      <div class="wrap foot-inner">
+        <div><strong>KaRo Motors</strong><span>Kfz-Meisterbetrieb in Hennigsdorf</span></div>
+        <address>{workshop.street}<br />{workshop.city}</address>
+        <nav aria-label="Rechtliches">
+          <a href="/impressum/">Impressum</a>
+          <a href="/datenschutz/">Datenschutz</a>
+        </nav>
+      </div>
+    </footer>
+    <div class="mobile-call">
+      <a href={workshop.phoneHref}><Icon name="phone" />Werkstatt anrufen</a>
+      <a href="/kontakt/#anfahrt"><Icon name="pin" />Anfahrt</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { workshop } from '../data/workshop';
+---
+
+<Layout title="Impressum" description="Öffentliche Angaben zur Werkstatt KaRo Motors in Hennigsdorf.">
+  <article class="legal wrap">
+    <h1>Impressum</h1>
+    <p>Diese lokale Vorschau verwendet die Angaben aus dem öffentlichen Impressum der Werkstatt.</p>
+
+    <h2>Angaben zum Betrieb (§ 5 DDG)</h2>
+    <address>
+      <strong>{workshop.name}</strong><br />
+      Inhaber {workshop.owner}<br />
+      {workshop.street}<br />
+      {workshop.city}<br />
+      Deutschland
+    </address>
+
+    <h2>Kontakt</h2>
+    <p>
+      Mobil <a href={workshop.phoneHref}>{workshop.phone}</a><br />
+      Festnetz <a href="tel:+4933024945199">+49 3302 4945199</a><br />
+      E-Mail <a href={`mailto:${workshop.email}`}>{workshop.email}</a>
+    </p>
+
+    <h2>Umsatzsteuer-Identifikationsnummer</h2>
+    <p>DE323012719 nach § 27a UStG</p>
+
+    <h2>Handwerkskammer</h2>
+    <address>
+      Handwerkskammer Potsdam<br />
+      Charlottenstraße 34–36<br />
+      14467 Potsdam<br />
+      Deutschland
+    </address>
+    <p>
+      Laut eigenem Impressum ist KaRo Motors für das Kraftfahrzeugtechniker-Handwerk in der
+      Handwerksrolle der Handwerkskammer Potsdam eingetragen. Es gilt die
+      <a href="https://www.gesetze-im-internet.de/hwo/" rel="noreferrer">Handwerksordnung (HwO)</a>.
+    </p>
+
+    <h2>Verbraucherstreitbeilegung</h2>
+    <p>
+      Nach eigenen Angaben ist die Werkstatt zu einer Teilnahme an Streitbeilegungsverfahren vor
+      einer Verbraucherschlichtungsstelle weder bereit noch verpflichtet.
+    </p>
+
+    <p><a href="https://karo-motors.com/impressum/" rel="noreferrer">Impressum der Werkstatt</a></p>
+  </article>
+</Layout>

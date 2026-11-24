@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { services, workshop } from '../data/workshop';
+import '../styles/inner.css';
+
+const emailHref = `mailto:${workshop.email}`;
+const callbackEmailHref = `${emailHref}?subject=${encodeURIComponent('Rückruf anfragen')}`;
+---
+
+<Layout
+  title="Kontakt & Anfahrt in Hennigsdorf"
+  description="KaRo Motors in Hennigsdorf erreichen. Telefonnummer, Öffnungszeiten und Anfahrt zur Kfz-Meisterwerkstatt."
+  active="kontakt"
+>
+  <div class="inner-page">
+    <section class="wrap contact" aria-labelledby="contact-title">
+      <div class="inner-intro contact__intro">
+        <h1 id="contact-title">Kontakt & Anfahrt</h1>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-details">
+          <section aria-labelledby="contact-direct-title">
+            <h2 id="contact-direct-title">Werkstatt erreichen</h2>
+            <a class="contact-details__phone" href={workshop.phoneHref}>{workshop.phone}</a>
+            <a class="contact-details__email" href={emailHref}>{workshop.email}</a>
+          </section>
+
+          <section id="anfahrt" aria-labelledby="contact-address-title">
+            <h3 id="contact-address-title">Adresse</h3>
+            <address>{workshop.street}<br />{workshop.city}</address>
+            <a class="button secondary" href={workshop.routeUrl}>
+              Route planen <Icon name="arrow" />
+            </a>
+          </section>
+
+          <section id="oeffnungszeiten" aria-labelledby="contact-hours-title">
+            <h3 id="contact-hours-title">Öffnungszeiten</h3>
+            <dl class="contact-hours">
+              {workshop.hours.map(entry => (
+                <div>
+                  <dt>{entry.days}</dt>
+                  <dd>{entry.time}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        </div>
+
+        <section id="rueckruf" class="callback" aria-labelledby="callback-title">
+          <h2 id="callback-title">Rückruf anfragen</h2>
+          <div id="callback-fallback">
+            <p>Schreiben Sie uns Ihren Namen, Ihre Telefonnummer und Ihr Anliegen.</p>
+            <a class="button primary" href={callbackEmailHref}>E-Mail-Entwurf öffnen</a>
+          </div>
+          <form id="callback-form" class="callback-form" data-email={workshop.email} hidden>
+            <div class="callback-form__pair">
+              <div class="callback-form__field">
+                <label for="callback-name">Name</label>
+                <input id="callback-name" name="name" autocomplete="name" maxlength="100" required />
+                <p id="callback-name-error" class="callback-form__error" hidden></p>
+              </div>
+              <div class="callback-form__field">
+                <label for="callback-tel">Telefonnummer</label>
+                <input id="callback-tel" name="tel" type="tel" autocomplete="tel" maxlength="40" required />
+                <p id="callback-tel-error" class="callback-form__error" hidden></p>
+              </div>
+            </div>
+            <div class="callback-form__field">
+              <label for="callback-service">Leistung <span>(optional)</span></label>
+              <select id="callback-service" name="service">
+                <option value="">Bitte auswählen</option>
+                {services.map(service => <option value={service.id}>{service.title}</option>)}
+              </select>
+            </div>
+            <div class="callback-form__field">
+              <label for="callback-message">Nachricht <span>(optional)</span></label>
+              <textarea id="callback-message" name="message" rows="3" maxlength="400"></textarea>
+            </div>
+            <p id="callback-help" class="callback-help">Ihr E-Mail-Programm öffnet einen Entwurf. Dort können Sie Ihre Anfrage prüfen und absenden.</p>
+            <button type="submit" class="button primary" aria-describedby="callback-help">E-Mail-Entwurf öffnen</button>
+            <p id="callback-status" class="callback-help" role="status" hidden>
+              Falls sich kein E-Mail-Programm öffnet, <a href={workshop.phoneHref}>rufen Sie uns an</a>.
+            </p>
+          </form>
+          <a class="callback__privacy" href="/datenschutz/">Datenschutzhinweise</a>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const form = document.getElementById('callback-form');
+      const fallback = document.getElementById('callback-fallback');
+      const nameField = form.elements.namedItem('name');
+      const phoneField = form.elements.namedItem('tel');
+      const serviceField = form.elements.namedItem('service');
+      const messageField = form.elements.namedItem('message');
+      const nameError = document.getElementById('callback-name-error');
+      const phoneError = document.getElementById('callback-tel-error');
+      const status = document.getElementById('callback-status');
+
+      const requestedService = new URLSearchParams(window.location.search).get('leistung');
+      if (requestedService && Array.from(serviceField.options).some(option => option.value === requestedService)) {
+        serviceField.value = requestedService;
+      }
+
+      function showError(field, error, message) {
+        error.textContent = message;
+        error.hidden = !message;
+
+        if (message) {
+          field.setAttribute('aria-invalid', 'true');
+          field.setAttribute('aria-describedby', error.id);
+        } else {
+          field.removeAttribute('aria-invalid');
+          field.removeAttribute('aria-describedby');
+        }
+      }
+
+      nameField.addEventListener('input', () => showError(nameField, nameError, ''));
+      phoneField.addEventListener('input', () => showError(phoneField, phoneError, ''));
+
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        status.hidden = true;
+
+        const name = nameField.value.trim();
+        const phone = phoneField.value.trim();
+        const digitCount = phone.replace(/\D/g, '').length;
+        const validPhone = /^\+?[\d(][\d\s()./-]*$/.test(phone) && digitCount >= 6 && digitCount <= 15;
+        const nameMessage = name ? '' : 'Bitte geben Sie Ihren Namen ein.';
+        let phoneMessage = '';
+
+        if (!phone) {
+          phoneMessage = 'Bitte geben Sie Ihre Telefonnummer ein.';
+        } else if (!validPhone) {
+          phoneMessage = 'Bitte prüfen Sie Ihre Telefonnummer. Geben Sie auch die Vorwahl an.';
+        }
+
+        showError(nameField, nameError, nameMessage);
+        showError(phoneField, phoneError, phoneMessage);
+
+        if (nameMessage || phoneMessage) {
+          (nameMessage ? nameField : phoneField).focus();
+          return;
+        }
+
+        const service = serviceField.value ? serviceField.selectedOptions[0].text : '';
+        const message = messageField.value.trim();
+        const subject = service ? `Rückruf anfragen – ${service}` : 'Rückruf anfragen';
+        const body = ['Guten Tag,', '', 'bitte rufen Sie mich zurück.', '', `Name: ${name}`, `Telefon: ${phone}`];
+        if (service) body.push(`Leistung: ${service}`);
+        if (message) body.push('', message);
+
+        const draftQuery = `subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.join('\r\n'))}`;
+        status.hidden = false;
+        window.location.href = `mailto:${form.dataset.email}?${draftQuery}`;
+      });
+
+      form.noValidate = true;
+      form.hidden = false;
+      fallback.hidden = true;
+    })();
+  </script>
+</Layout>

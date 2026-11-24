@@ -1,0 +1,7 @@
+---
+interface Props {
+  name: 'phone' | 'pin' | 'clock' | 'arrow';
+}
+const { name } = Astro.props;
+---
+<img class="ui-icon" src={`/media/${name}.png`} width="18" height="18" alt="" />

@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { workshop } from '../data/workshop';
+---
+
+<Layout title="Datenschutz" description="Datenschutzhinweise zur lokalen Vorschau von KaRo Motors.">
+  <article class="legal wrap">
+    <h1>Datenschutz</h1>
+    <p>Diese Hinweise gelten für die lokale Vorschau. Angaben zum öffentlichen Betrieb werden vor einer Veröffentlichung ergänzt.</p>
+
+    <h2>Aufruf der Vorschau</h2>
+    <p>
+      Die Vorschau lädt Bilder und Schriften lokal. Sie setzt keine Cookies und verwendet weder
+      Webanalyse noch Webspeicher im Browser. Angaben zum Hosting, zu möglichen Zugriffsprotokollen
+      und zur verantwortlichen Stelle für den öffentlichen Auftritt stehen noch aus.
+    </p>
+
+    <h2>Rückrufentwurf</h2>
+    <p>
+      Die Vorschau erstellt den Rückrufentwurf im Browser. Sie verwendet Ihren Namen, Ihre
+      Telefonnummer und, wenn angegeben, die gewünschte Leistung und Ihre Nachricht. Das Formular
+      sendet dabei keine Daten an einen Server. Mit <strong>E-Mail-Entwurf öffnen</strong> übergeben Sie den
+      Entwurf an Ihr E-Mail-Programm. Dort entscheiden Sie, ob Sie ihn versenden.
+    </p>
+
+    <h2>Kontakt mit der Werkstatt</h2>
+    <p>
+      Wenn Sie anrufen oder eine E-Mail versenden, erhält die Werkstatt die dabei übermittelten
+      Kontakt- und Inhaltsdaten. Angaben, die Sie für eine Terminanfrage oder einen Kostenvoranschlag
+      machen, können für vorvertragliche Maßnahmen nach Art. 6 Abs. 1 Buchst. b DSGVO erforderlich
+      sein. Ohne eine Rückrufnummer kann die Werkstatt Sie nicht zurückrufen. Die Details zur
+      Verarbeitung bei der Werkstatt, einschließlich Empfängern und Speicherdauer, sind vor einer
+      Veröffentlichung zu bestätigen.
+    </p>
+    <address>
+      {workshop.name} · {workshop.owner}<br />
+      {workshop.street}<br />
+      {workshop.city}<br />
+      <a href={`mailto:${workshop.email}`}>{workshop.email}</a>
+    </address>
+
+    <h2>Routenplanung mit Google Maps</h2>
+    <p>
+      Die Vorschau bindet keine Karte ein. Der Link <strong>Route planen</strong> öffnet Google Maps.
+      Google kann dabei zum Beispiel Ihre IP-Adresse und Angaben zu Ihrem Browser erhalten.
+      <a href="https://policies.google.com/privacy?hl=de" rel="noreferrer">Datenschutzerklärung von Google</a>
+    </p>
+
+    <h2>Ihre Rechte</h2>
+    <p>
+      Bei der Verarbeitung personenbezogener Daten bestehen nach Maßgabe der DSGVO Rechte auf
+      Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit
+      (Art. 15–20 DSGVO). Gegen die Verarbeitung aufgrund berechtigter Interessen können Sie aus
+      Gründen Ihrer besonderen Situation Widerspruch einlegen (Art. 21 DSGVO).
+    </p>
+    <p>
+      Sie können sich nach Art. 77 DSGVO bei einer Datenschutzaufsichtsbehörde beschweren. Für eine
+      Beschwerde über einen Betrieb mit Sitz in Brandenburg können Sie sich an die Landesbeauftragte
+      für den Datenschutz und für das Recht auf Akteneinsicht wenden, Stahnsdorfer Damm 77, 14532 Kleinmachnow.
+      <a href="https://www.lda.brandenburg.de/lda/de/service/formulare-und-musterschreiben/beschwerdeformular/" rel="noreferrer">Beschwerde bei der Landesbeauftragten</a>
+    </p>
+  </article>
+</Layout>

@@ -11,9 +11,8 @@ const brands = [
     <h2 id="marken">Marken & Prüfservice</h2>
     <ul>
       {brands.map(brand => (
-        <li><a href={`/leistungen/#${brand.service}`}>
+        <li><a href={`/leistungen/#${brand.service}`} aria-label={`${brand.name} – ${brand.label}`}>
           <span class="brand-mark"><img src={`/media/${brand.file}`} alt={brand.name} width={brand.width} height={brand.height} loading="lazy" /></span>
-          <span>{brand.label}</span>
         </a></li>
       ))}
     </ul>
@@ -25,8 +24,8 @@ const brands = [
   h2 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); }
   ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1.2rem 0 0; padding: 0; list-style: none; }
   li + li { border-inline-start: 1px solid var(--line); }
-  a { display: grid; justify-items: center; gap: .6rem; padding: .5rem; color: var(--muted); font-size: .9rem; text-decoration: none; }
-  a:hover span:last-child, a:focus-visible span:last-child { text-decoration: underline; }
+  a { display: grid; justify-items: center; padding: .5rem; }
+  a:hover { background: var(--paper); }
   .brand-mark { display: flex; align-items: center; justify-content: center; height: 2.75rem; }
   img { width: auto; height: auto; max-height: 100%; max-width: min(8.5rem, 100%); }
   @media (max-width: 600px) {

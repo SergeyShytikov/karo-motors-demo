@@ -27,3 +27,5 @@ Die Fotos illustrieren die Demo. Die Startseite zeigt zwei Autos auf Hebebühnen
 - Notebook im Fahrzeug: [ThisIsEngineering auf Pexels](https://www.pexels.com/photo/engineer-testing-sound-system-3862610/).
 
 Für diese Bilder gilt die [Pexels-Lizenz](https://www.pexels.com/license/).
+
+Das Foto des Schilds „GTÜ Prüfstützpunkt“ stammt aus dem für das Projekt bereitgestellten Material.

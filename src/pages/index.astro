@@ -6,7 +6,7 @@ import '../styles/home.css';
 
 const featured = [
   { id: 'inspektion', title: 'Inspektion', icon: 'inspection' },
-  { id: 'hu-au', title: 'HU/AU', icon: 'hu' },
+  { id: 'hu-au', title: 'HU/AU mit GTÜ', icon: 'hu' },
   { id: 'fahrzeugdiagnose', title: 'Diagnose', icon: 'diagnosis' },
   { id: 'reifenwechsel', title: 'Reifenwechsel', icon: 'tyre' },
 ].map(item => ({ ...item, price: services.find(service => service.id === item.id)!.price }));
@@ -49,7 +49,7 @@ const featured = [
   </section>
   <section class="workshop-section wrap" aria-labelledby="about-title">
     <div class="workshop-image">
-      <img src="/media/diagnostic-laptop.webp" srcset="/media/diagnostic-laptop-small.webp 760w, /media/diagnostic-laptop.webp 1536w" sizes="(max-width: 720px) 100vw, 50vw" alt="Notebook mit Messkurven im Fahrzeuginnenraum" width="1536" height="1025" loading="lazy" />
+      <img src="/media/gtue-pruefstuetzpunkt.webp" alt="Schild an der Werkstatt mit der Aufschrift „GTÜ Prüfstützpunkt“" width="848" height="530" loading="lazy" />
     </div>
     <div class="about-copy">
       <h2 id="about-title">{homeCopy.aboutTitle}</h2>

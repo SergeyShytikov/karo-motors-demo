@@ -34,7 +34,7 @@ const callback = (id: string) => `/kontakt/?leistung=${id}#rueckruf`;
           <article id={service.id} class="price-card">
             <a href={callback(service.id)} aria-label={`${service.title} ab ${service.price} Euro, Rückruf anfragen`} aria-describedby={`note-${service.id}`}>
               <div class="price-card__heading">
-                <h3>{service.title}</h3>
+                <h3>{service.title}{service.id === 'hu-au' && <img class="inspection-brand" src="/media/gtue-logo.png" width="380" height="180" alt="" />}</h3>
                 <Icon name="arrow" />
               </div>
               <p class="price-card__note" id={`note-${service.id}`}>{service.note}</p>
@@ -55,7 +55,11 @@ const callback = (id: string) => `/kontakt/?leistung=${id}#rueckruf`;
       <ul class="request-grid">
         {onRequest.map(service => (
           <li id={service.id}>
-            <a href={callback(service.id)} aria-label={`Preis für ${service.title} erfragen`}>{service.title}<Icon name="arrow" /></a>
+            <a href={callback(service.id)} aria-label={`Preis für ${service.title} erfragen`}>
+              {service.title}
+              {service.id === 'oelwechsel' && <img class="oil-brand" src="/media/castrol-service.webp" width="435" height="122" alt="Castrol Service" />}
+              <Icon name="arrow" />
+            </a>
           </li>
         ))}
       </ul>

@@ -28,4 +28,6 @@ Die Fotos illustrieren die Demo. Die Startseite zeigt zwei Autos auf Hebebühnen
 
 Für diese Bilder gilt die [Pexels-Lizenz](https://www.pexels.com/license/).
 
-Das Foto des Schilds „GTÜ Prüfstützpunkt“ stammt aus dem für das Projekt bereitgestellten Material.
+## Marken bei den Leistungen
+
+Das [GTÜ-Logo](https://www.gtue.de/fm/871/gtue-logo_rot-grau.png) kennzeichnet die HU/AU vor Ort. Das [Castrol-Service-Logo](https://karo-motors.com/wp-content/uploads/2023/08/castrol.webp) stammt aus dem Bereich „Unsere Partner“ auf der [Website der Werkstatt](https://karo-motors.com/).

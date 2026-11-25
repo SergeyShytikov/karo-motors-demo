@@ -33,7 +33,7 @@ type Service = {
 // The workshop publishes starting prices without a per-wheel or per-hour rate.
 export const services: Service[] = [
   { id: 'inspektion', title: 'Inspektion', price: 40, note: 'Wartung nach Kilometerstand und Intervall' },
-  { id: 'hu-au', title: 'HU/AU', price: 150, note: 'GTÜ-Prüfstützpunkt. Auch Termine zur Nachuntersuchung.' },
+  { id: 'hu-au', title: 'HU/AU', price: 150, note: 'Hauptuntersuchung mit der GTÜ bei uns vor Ort. Auch Termine zur Nachuntersuchung.' },
   { id: 'fahrzeugdiagnose', title: 'Fahrzeugdiagnose', price: 20, note: 'Fehlerspeicher auslesen und Ursache prüfen' },
   { id: 'reifenwechsel', title: 'Reifen- und Räderwechsel', price: 10, note: 'Einlagerung auf Anfrage' },
   { id: 'klimawartung', title: 'Klimawartung', price: 70, note: 'Klimaanlage und Kühlleistung prüfen' },

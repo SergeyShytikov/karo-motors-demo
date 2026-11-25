@@ -24,13 +24,12 @@
 .service-tile + .service-tile { border-left: 1px solid var(--line); }
 .service-tile:hover { background: #f4f3ef; }
 .service-tile:focus-visible { outline-offset: -4px; }
-.service-icon { width: clamp(2.6rem,4vw,3.75rem); height: auto; grid-row: span 2; mix-blend-mode: multiply; }
+.service-icon { width: clamp(2.6rem,4vw,3.75rem); height: auto; aspect-ratio: 1; object-fit: contain; grid-row: span 2; mix-blend-mode: multiply; }
 .service-tile h3 { font-size: clamp(1.2rem,1.8vw,1.65rem); line-height: 1.13; }
 .service-price { margin-top: .2rem; color: #aa3708; font: 700 clamp(1.4rem,2.25vw,2.05rem)/1 var(--display); }
 .service-price small { font-size: .65em; }
 .workshop-section { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: clamp(2.8rem,5vw,5rem); background: #eaeae4; }
-.workshop-image { align-self: center; }
-.workshop-image img { width: 100%; height: auto; }
+.workshop-image img { width: 100%; height: 100%; object-fit: cover; max-height: 480px; }
 .about-copy { align-self: center; padding: clamp(1.7rem,4.5vw,4.5rem); }
 .about-copy h2 { margin-bottom: 1rem; }
 .about-copy p { max-width: 28rem; line-height: 1.55; }
@@ -42,6 +41,7 @@
 }
 @media (max-width: 720px) {
   .workshop-section { grid-template-columns: 1fr; }
+  .workshop-image { height: clamp(180px,50vw,330px); }
 }
 @media (max-width: 650px) {
   .hero-photo { position: static; display: block; width: 100%; height: clamp(10rem, 51vw, 15rem); }

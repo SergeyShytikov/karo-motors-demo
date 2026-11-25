@@ -5,10 +5,10 @@ import { workshop, services, homeCopy } from '../data/workshop';
 import '../styles/home.css';
 
 const featured = [
-  { id: 'inspektion', title: 'Inspektion', icon: 'inspection' },
-  { id: 'hu-au', title: 'HU/AU mit GTÜ', icon: 'hu' },
-  { id: 'fahrzeugdiagnose', title: 'Diagnose', icon: 'diagnosis' },
-  { id: 'reifenwechsel', title: 'Reifenwechsel', icon: 'tyre' },
+  { id: 'inspektion', title: 'Inspektion', icon: 'inspection.webp' },
+  { id: 'hu-au', title: 'HU/AU', icon: 'gtue-logo.png' },
+  { id: 'fahrzeugdiagnose', title: 'Diagnose', icon: 'diagnosis.webp' },
+  { id: 'reifenwechsel', title: 'Reifenwechsel', icon: 'tyre.webp' },
 ].map(item => ({ ...item, price: services.find(service => service.id === item.id)!.price }));
 ---
 <Layout active="home" title="Ihre Meisterwerkstatt in Hennigsdorf" description="KaRo Motors in Hennigsdorf. Entdecken Sie Werkstattleistungen und Einstiegspreise oder vereinbaren Sie telefonisch einen Termin.">
@@ -40,7 +40,7 @@ const featured = [
     <div class="featured-services">
       {featured.map(item => (
         <a href={`/leistungen/#${item.id}`} class="service-tile">
-          <img class="service-icon" src={`/media/${item.icon}.webp`} alt="" width="72" height="72" />
+          <img class="service-icon" src={`/media/${item.icon}`} alt={item.id === 'hu-au' ? 'GTÜ' : ''} width="72" height="72" />
           <h3>{item.title}</h3>
           <span class="service-price"><small>ab</small> {item.price} €</span>
         </a>
@@ -49,7 +49,7 @@ const featured = [
   </section>
   <section class="workshop-section wrap" aria-labelledby="about-title">
     <div class="workshop-image">
-      <img src="/media/gtue-pruefstuetzpunkt.webp" alt="Schild an der Werkstatt mit der Aufschrift „GTÜ Prüfstützpunkt“" width="848" height="530" loading="lazy" />
+      <img src="/media/diagnostic-laptop.webp" srcset="/media/diagnostic-laptop-small.webp 760w, /media/diagnostic-laptop.webp 1536w" sizes="(max-width: 720px) 100vw, 50vw" alt="Notebook mit Messkurven im Fahrzeuginnenraum" width="1536" height="1025" loading="lazy" />
     </div>
     <div class="about-copy">
       <h2 id="about-title">{homeCopy.aboutTitle}</h2>

@@ -54,8 +54,6 @@
 .price-card:has(a:hover), .price-card:focus-within { border-color: #b87a60; background: #fffdf8; }
 .price-card__heading, .request-grid a { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; }
 .price-card h3 { font-size: clamp(1.4rem, 1.95vw, 1.75rem); line-height: 1.1; }
-.inspection-brand { display: inline-block; vertical-align: middle; width: 3.1rem; height: auto; margin-inline-start: .55rem; }
-.oil-brand { width: 6.4rem; height: auto; margin-inline: auto .3rem; }
 .price-card__heading .ui-icon, .request-grid .ui-icon {
   align-self: center;
   width: .92rem;

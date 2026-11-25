@@ -6,7 +6,7 @@ import '../styles/home.css';
 
 const featured = [
   { id: 'inspektion', title: 'Inspektion', icon: 'inspection.webp' },
-  { id: 'hu-au', title: 'HU/AU', icon: 'gtue-logo.png' },
+  { id: 'hu-au', title: 'HU/AU mit GTÜ', icon: 'hu.webp' },
   { id: 'fahrzeugdiagnose', title: 'Diagnose', icon: 'diagnosis.webp' },
   { id: 'reifenwechsel', title: 'Reifenwechsel', icon: 'tyre.webp' },
 ].map(item => ({ ...item, price: services.find(service => service.id === item.id)!.price }));
@@ -40,7 +40,7 @@ const featured = [
     <div class="featured-services">
       {featured.map(item => (
         <a href={`/leistungen/#${item.id}`} class="service-tile">
-          <img class="service-icon" src={`/media/${item.icon}`} alt={item.id === 'hu-au' ? 'GTÜ' : ''} width="72" height="72" />
+          <img class="service-icon" src={`/media/${item.icon}`} alt="" width="72" height="72" />
           <h3>{item.title}</h3>
           <span class="service-price"><small>ab</small> {item.price} €</span>
         </a>

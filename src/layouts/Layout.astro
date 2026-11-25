@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { workshop } from '../data/workshop';
 import Icon from '../components/Icon.astro';
+import ServiceBrands from '../components/ServiceBrands.astro';
 
 interface Props {
   title: string;
@@ -41,7 +42,7 @@ const navigation = [
         <a class="header-phone" href={workshop.phoneHref}><Icon name="phone" />{workshop.phone}</a>
       </div>
     </header>
-    <main id="inhalt" tabindex="-1"><slot /></main>
+    <main id="inhalt" tabindex="-1"><slot />{active && <ServiceBrands />}</main>
     <footer class="footer">
       <div class="wrap foot-inner">
         <div><strong>KaRo Motors</strong><span>Website-Demo · Kontaktdaten der Werkstatt</span></div>

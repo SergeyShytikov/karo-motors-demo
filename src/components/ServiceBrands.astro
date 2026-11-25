@@ -1,0 +1,38 @@
+---
+const brands = [
+  { name: 'GTÜ', label: 'HU/AU vor Ort', service: 'hu-au', file: 'gtue-logo.png', width: 380, height: 180 },
+  { name: 'Castrol Service', label: 'Ölwechsel', service: 'oelwechsel', file: 'castrol-service.webp', width: 435, height: 122 },
+  { name: 'MANN-FILTER', label: 'Filter', service: 'inspektion', file: 'mann-filter-logo.svg', width: 133, height: 67 },
+  { name: 'Bosch', label: 'Bremsenteile', service: 'bremsenwechsel', file: 'bosch-logo.svg', width: 433, height: 97 },
+];
+---
+<section class="brands" aria-labelledby="marken">
+  <div class="wrap">
+    <h2 id="marken">Marken & Prüfservice</h2>
+    <ul>
+      {brands.map(brand => (
+        <li><a href={`/leistungen/#${brand.service}`}>
+          <span class="brand-mark"><img src={`/media/${brand.file}`} alt={brand.name} width={brand.width} height={brand.height} loading="lazy" /></span>
+          <span>{brand.label}</span>
+        </a></li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .brands { padding-block: clamp(1.75rem, 3vw, 3rem); background: white; border-top: 1px solid var(--line); }
+  h2 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); }
+  ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1.2rem 0 0; padding: 0; list-style: none; }
+  li + li { border-inline-start: 1px solid var(--line); }
+  a { display: grid; justify-items: center; gap: .6rem; padding: .5rem; color: var(--muted); font-size: .9rem; text-decoration: none; }
+  a:hover span:last-child, a:focus-visible span:last-child { text-decoration: underline; }
+  .brand-mark { display: flex; align-items: center; justify-content: center; height: 2.75rem; }
+  img { width: auto; height: auto; max-height: 100%; max-width: min(8.5rem, 100%); }
+  @media (max-width: 600px) {
+    ul { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1rem; }
+    li:nth-child(odd) { border-inline-start: 0; }
+    .brand-mark { height: 2.25rem; }
+    img { max-width: min(6.5rem, 100%); }
+  }
+</style>

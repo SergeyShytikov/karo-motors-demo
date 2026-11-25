@@ -44,10 +44,10 @@
   .workshop-image { height: clamp(180px,50vw,330px); }
 }
 @media (max-width: 650px) {
-  .hero-photo { width: 100%; height: 100%; }
-  .hero-photo img { object-position: 60% 50%; }
-  .hero::after { background: linear-gradient(0deg,#151819 3%,#151819eb 26%,#15181973 67%,#15181905 95%); }
-  .hero-inner { min-height: 480px; justify-content: flex-end; padding-block: 8rem 1.75rem; }
+  .hero-photo { position: static; display: block; width: 100%; height: clamp(10rem, 51vw, 15rem); }
+  .hero-photo img { object-position: 58% 68%; }
+  .hero::after { content: none; }
+  .hero-inner { min-height: 0; padding-block: 1.25rem 1.75rem; }
   .hero h1 { font-size: clamp(2.8rem,10.5vw,4rem); }
   .hero-inner > p { max-width: 23rem; font-size: 1rem; margin-top: .8rem; }
   .hero-actions { margin-top: 1.2rem; gap: .55rem; }
@@ -65,6 +65,5 @@
   .service-icon { width: 2.8rem; }
 }
 @media (max-width: 360px) {
-  .hero-inner { min-height: 445px; }
   .hero-actions .button { padding: .55rem .75rem; }
 }

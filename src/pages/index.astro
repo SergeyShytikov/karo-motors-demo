@@ -1,60 +1,75 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
-import { workshop, services, homeCopy } from '../data/workshop';
+import { workshop, services, groups, homeCopy, serviceById, formatPrice } from '../data/workshop';
 import '../styles/home.css';
 
-const featured = [
-  { id: 'inspektion', title: 'Inspektion', icon: 'inspection.webp' },
-  { id: 'hu-au', title: 'HU/AU mit GTÜ', icon: 'hu.webp' },
-  { id: 'fahrzeugdiagnose', title: 'Diagnose', icon: 'diagnosis.webp' },
-  { id: 'reifenwechsel', title: 'Reifenwechsel', icon: 'tyre.webp' },
-].map(item => ({ ...item, price: services.find(service => service.id === item.id)!.price }));
+const board = ['hu-au', 'inspektion', 'fahrzeugdiagnose', 'bremsenwechsel', 'klimawartung', 'reifenwechsel', 'scheibenwechsel']
+  .map(id => serviceById(id))
+  .map(service => ({ ...service, label: service.id === 'reifenwechsel' ? 'Räderwechsel' : service.title }));
+const index = groups.map(group => ({ ...group, items: services.filter(service => service.group === group.id) }));
+const hoursShort = workshop.hours.filter(entry => entry.short !== 'So').map(entry => `${entry.short} ${entry.time}`);
 ---
-<Layout active="home" title="Ihre Meisterwerkstatt in Hennigsdorf" description="KaRo Motors in Hennigsdorf. Entdecken Sie Werkstattleistungen und Einstiegspreise oder vereinbaren Sie telefonisch einen Termin.">
+<Layout active="home" title="Ihre Meisterwerkstatt in Hennigsdorf" description="KaRo Motors in Hennigsdorf. Werkstattleistungen mit Einstiegspreisen, HU/AU mit der GTÜ vor Ort. Termin telefonisch vereinbaren.">
   <section class="hero" aria-labelledby="hero-title">
-    <picture class="hero-photo">
-      <source media="(max-width: 650px)" srcset="/media/workshop-lifts-small.webp" width="760" height="422" />
-      <img src="/media/workshop-lifts.webp" alt="Beispielfoto mit zwei Autos auf Hebebühnen in einer Kfz-Werkstatt" width="1536" height="930" fetchpriority="high" />
-    </picture>
-    <div class="wrap hero-inner">
-      <h1 id="hero-title">Ihre Meisterwerkstatt<br />in Hennigsdorf.</h1>
-      <p>{homeCopy.intro}</p>
-      <div class="hero-actions">
-        <a class="button primary" href={workshop.phoneHref}><Icon name="phone" />Jetzt anrufen</a>
-        <a class="button hero-secondary" href="/kontakt/#rueckruf">Rückruf anfragen</a>
+    <div class="hero__copy">
+      <h1 id="hero-title"><span>Ihre Meisterwerkstatt</span> <em>in Hennigsdorf.</em></h1>
+      <p class="hero__intro">{homeCopy.intro}</p>
+      <div class="hero__actions">
+        <a class="button primary hero__call" href={workshop.phoneHref}><Icon name="phone" />{workshop.phone}</a>
+        <a class="button secondary" href={workshop.routeUrl} rel="noreferrer"><Icon name="route" />Route planen</a>
       </div>
+      <a class="text-link hero__callback" href="/kontakt/#rueckruf">Rückruf anfragen <Icon name="arrow" /></a>
+      <ul class="hero__facts">
+        <li><Icon name="pin" />{workshop.street}, {workshop.city}</li>
+        <li><Icon name="clock" /><span><span class="nowrap">{hoursShort[0]}</span> · <span class="nowrap">{hoursShort[1]}</span></span></li>
+      </ul>
     </div>
+    <picture class="hero__photo">
+      <source media="(max-width: 40rem)" srcset="/media/workshop-lifts-small.webp" width="760" height="422" />
+      <img src="/media/workshop-lifts.webp" alt="Beispielfoto: Autos auf Hebebühnen in einer Kfz-Werkstatt" width="1536" height="930" fetchpriority="high" />
+    </picture>
   </section>
-  <div class="quick-info">
-    <div class="wrap quick-inner">
-      <a href="/kontakt/#anfahrt"><Icon name="pin" /><span>{workshop.street}, {workshop.city}</span></a>
-      <a href="/kontakt/#oeffnungszeiten"><Icon name="clock" /><span>Mo–Fr {workshop.hours[0].time}<span class="hours-spacer"> / </span>Sa {workshop.hours[1].time}</span></a>
+
+  <section class="board wrap" aria-labelledby="board-title">
+    <h2 id="board-title" class="board__title">Einstiegspreise</h2>
+    <ul class="board__list">
+      {board.map(item => (
+        <li>
+          <a href={`/leistungen/#${item.id}`}>
+            <span class="board__name">{item.label}</span>
+            <span class="board__price"><small>ab</small> {formatPrice(item.price!)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="index wrap" aria-labelledby="index-title">
+    <div class="index__head">
+      <h2 id="index-title">Leistungen im Überblick</h2>
+      <a class="text-link" href="/leistungen/">Alle Leistungen & Preise <Icon name="arrow" /></a>
     </div>
-  </div>
-  <section class="wrap service-section" aria-labelledby="service-title">
-    <div class="section-heading">
-      <h2 id="service-title">Werkstattleistungen & Preise</h2>
-      <a class="text-link" href="/leistungen/">Alle Leistungen <Icon name="arrow" /></a>
-    </div>
-    <div class="featured-services">
-      {featured.map(item => (
-        <a href={`/leistungen/#${item.id}`} class="service-tile">
-          <img class="service-icon" src={`/media/${item.icon}`} alt="" width="72" height="72" />
-          <h3>{item.title}</h3>
-          <span class="service-price"><small>ab</small> {item.price} €</span>
-        </a>
+    <div class="index__grid">
+      {index.map(group => (
+        <div class="index__group">
+          <h3>{group.title}</h3>
+          <ul>
+            {group.items.map(item => <li><a href={`/leistungen/#${item.id}`}>{item.title}</a></li>)}
+          </ul>
+        </div>
       ))}
     </div>
   </section>
-  <section class="workshop-section wrap" aria-labelledby="about-title">
-    <div class="workshop-image">
-      <img src="/media/diagnostic-laptop.webp" srcset="/media/diagnostic-laptop-small.webp 760w, /media/diagnostic-laptop.webp 1536w" sizes="(max-width: 720px) 100vw, 50vw" alt="Notebook mit Messkurven im Fahrzeuginnenraum" width="1536" height="1025" loading="lazy" />
+
+  <section class="about wrap" aria-labelledby="about-title">
+    <div class="about__image">
+      <img src="/media/diagnostic-laptop.webp" srcset="/media/diagnostic-laptop-small.webp 760w, /media/diagnostic-laptop.webp 1536w" sizes="(max-width: 48rem) 100vw, 50vw" alt="Beispielfoto: Notebook mit Messkurven im Fahrzeuginnenraum" width="1536" height="1025" loading="lazy" />
     </div>
-    <div class="about-copy">
+    <div class="about__copy">
       <h2 id="about-title">{homeCopy.aboutTitle}</h2>
       <p>{homeCopy.aboutBody}</p>
-      <p class="owner"><strong>{workshop.owner}</strong><br />Inhaber von KaRo Motors</p>
+      <p class="about__owner"><strong>{workshop.owner}</strong>Inhaber von KaRo Motors</p>
       <a class="text-link" href="/kontakt/">Kontakt & Anfahrt <Icon name="arrow" /></a>
     </div>
   </section>

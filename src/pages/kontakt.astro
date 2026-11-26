@@ -16,27 +16,28 @@ const callbackEmailHref = `${emailHref}?subject=${encodeURIComponent('Rückruf a
   <div class="inner-page">
     <section class="wrap contact" aria-labelledby="contact-title">
       <div class="inner-intro contact__intro">
-        <h1 id="contact-title">Kontakt & Anfahrt</h1>
+        <h1 id="contact-title">Kontakt <em>&amp;&nbsp;Anfahrt</em></h1>
+        <p>Rufen Sie uns an, planen Sie die Route oder bitten Sie um einen Rückruf.</p>
       </div>
 
       <div class="contact-card">
         <div class="contact-details">
           <section aria-labelledby="contact-direct-title">
             <h2 id="contact-direct-title">Werkstatt erreichen</h2>
-            <a class="contact-details__phone" href={workshop.phoneHref}>{workshop.phone}</a>
+            <a class="button primary contact-details__phone" href={workshop.phoneHref}><Icon name="phone" />{workshop.phone}</a>
             <a class="contact-details__email" href={emailHref}>{workshop.email}</a>
           </section>
 
           <section id="anfahrt" aria-labelledby="contact-address-title">
-            <h3 id="contact-address-title">Adresse</h3>
+            <h2 id="contact-address-title" class="contact-sub">Adresse</h2>
             <address>{workshop.street}<br />{workshop.city}</address>
-            <a class="button secondary" href={workshop.routeUrl}>
-              Route planen <Icon name="arrow" />
+            <a class="button secondary" href={workshop.routeUrl} rel="noreferrer">
+              <Icon name="route" />Route planen
             </a>
           </section>
 
           <section id="oeffnungszeiten" aria-labelledby="contact-hours-title">
-            <h3 id="contact-hours-title">Öffnungszeiten</h3>
+            <h2 id="contact-hours-title" class="contact-sub">Öffnungszeiten</h2>
             <dl class="contact-hours">
               {workshop.hours.map(entry => (
                 <div>

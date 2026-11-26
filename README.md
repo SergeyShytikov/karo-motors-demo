@@ -21,12 +21,16 @@ Ein Push auf den Branch `demo` baut die Website mit GitHub Actions und veröffen
 
 ## Fotos
 
-Die Fotos illustrieren die Demo. Die Startseite zeigt zwei Autos auf Hebebühnen. Die Aufnahme auf der Preisseite zeigt ein Notebook im Fahrzeuginnenraum. Beide Motive sind für das Layout zugeschnitten und werden als WebP von derselben Website geladen.
+Die Fotos illustrieren die Demo. Die Startseite zeigt oben zwei Autos auf Hebebühnen und weiter unten ein Notebook im Fahrzeuginnenraum. Beide Motive sind für das Layout zugeschnitten und werden als WebP von derselben Website geladen.
 
 - Fahrzeuge auf Hebebühnen: [Jae Park auf Pexels](https://www.pexels.com/photo/cars-in-car-repair-shop-4756887/).
 - Notebook im Fahrzeug: [ThisIsEngineering auf Pexels](https://www.pexels.com/photo/engineer-testing-sound-system-3862610/).
 
 Für diese Bilder gilt die [Pexels-Lizenz](https://www.pexels.com/license/).
+
+## Schriften und Icons
+
+Barlow und Barlow Semi Condensed liegen als WOFF2 in `public/fonts/` und stehen unter der [SIL Open Font License](public/fonts/OFL-Barlow.txt). Die Icons sind SVG-Pfade nach [Lucide](https://lucide.dev/) (ISC-Lizenz). Farben und Schriftregeln stehen in [DESIGN.md](DESIGN.md).
 
 ## Marken vor dem Footer
 

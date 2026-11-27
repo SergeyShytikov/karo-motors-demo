@@ -21,10 +21,12 @@ Ein Push auf den Branch `demo` baut die Website mit GitHub Actions und veröffen
 
 ## Fotos
 
-Die Fotos illustrieren die Demo. Die Startseite zeigt oben zwei Autos auf Hebebühnen und weiter unten ein Notebook im Fahrzeuginnenraum. Beide Motive sind für das Layout zugeschnitten und werden als WebP von derselben Website geladen.
+Die Fotos illustrieren die Demo. Die Startseite zeigt oben zwei Autos auf Hebebühnen und weiter unten ein Notebook im Fahrzeuginnenraum. Auf „Leistungen & Preise“ prüft ein Mechaniker ein Rad an einem orangefarbenen Auto, auf „Kontakt & Anfahrt“ löst er Radmuttern. Alle Motive sind verkleinert und werden als WebP von derselben Website geladen.
 
 - Fahrzeuge auf Hebebühnen: [Jae Park auf Pexels](https://www.pexels.com/photo/cars-in-car-repair-shop-4756887/).
 - Notebook im Fahrzeug: [ThisIsEngineering auf Pexels](https://www.pexels.com/photo/engineer-testing-sound-system-3862610/).
+- Rad am orangefarbenen Auto: [Pexels, Foto 6870331](https://www.pexels.com/photo/man-in-blue-coveralls-standing-beside-an-orange-car-checking-on-the-tire-6870331/).
+- Radmuttern am Reifen: [Pexels, Foto 8986177](https://www.pexels.com/photo/a-person-holding-a-tire-8986177/).
 
 Für diese Bilder gilt die [Pexels-Lizenz](https://www.pexels.com/license/).
 

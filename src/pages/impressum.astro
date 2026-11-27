@@ -3,15 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import { workshop } from '../data/workshop';
 ---
 
-<Layout title="Impressum" description="Öffentliche Angaben zur Werkstatt KaRo Motors in Hennigsdorf.">
+<Layout title="Impressum" description="Angaben gemäß § 5 DDG zur Kfz-Werkstatt KaRo Motors in Hennigsdorf.">
   <article class="legal wrap">
     <h1>Impressum</h1>
-    <p>Dieser Website-Entwurf zeigt die Kontaktdaten der Werkstatt. Telefon und E-Mail führen direkt zu KaRo Motors. Die Angaben zum Betrieb stammen aus dem <a href="https://karo-motors.com/impressum/" rel="noreferrer">Impressum der Werkstatt</a>.</p>
 
-    <h2>Angaben zum Betrieb (§ 5 DDG)</h2>
+    <h2>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</h2>
     <address>
-      <strong>{workshop.name}</strong><br />
-      Inhaber {workshop.owner}<br />
+      {workshop.name}<br />
+      Inhaber: {workshop.owner}<br />
       {workshop.street}<br />
       {workshop.city}<br />
       Deutschland
@@ -19,31 +18,35 @@ import { workshop } from '../data/workshop';
 
     <h2>Kontakt</h2>
     <p>
-      Mobil <a href={workshop.phoneHref}>{workshop.phone}</a><br />
-      Festnetz <a href="tel:+4933024945199">+49 3302 4945199</a><br />
-      E-Mail <a href={`mailto:${workshop.email}`}>{workshop.email}</a>
+      Telefon (mobil): <a href={workshop.phoneHref}>{workshop.phone}</a><br />
+      Telefon (Festnetz): <a href="tel:+4933024945199">+49 3302 4945199</a><br />
+      E-Mail: <a href={`mailto:${workshop.email}`}>{workshop.email}</a>
     </p>
 
-    <h2>Umsatzsteuer-Identifikationsnummer</h2>
-    <p>DE323012719</p>
+    <h2>Umsatzsteuer-ID</h2>
+    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE323012719</p>
 
-    <h2>Handwerkskammer</h2>
+    <h2>Zuständige Kammer</h2>
     <address>
       Handwerkskammer Potsdam<br />
       Charlottenstraße 34–36<br />
       14467 Potsdam<br />
       Deutschland
     </address>
+
+    <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
     <p>
-      Laut eigenem Impressum ist KaRo Motors für das Kraftfahrzeugtechniker-Handwerk in der
-      Handwerksrolle der Handwerkskammer Potsdam eingetragen. Es gilt die <a href="https://www.gesetze-im-internet.de/hwo/" rel="noreferrer">Handwerksordnung (HwO)</a>.
+      Technischer Betriebsleiter: {workshop.owner}<br />
+      Berufsbezeichnung: Kraftfahrzeugtechnikermeister<br />
+      Verliehen in: Bundesrepublik Deutschland<br />
+      Zuständige Kammer: Handwerkskammer Potsdam (eingetragen in die Handwerksrolle)
+    </p>
+    <p>
+      Es gelten folgende berufsrechtliche Regelungen: Handwerksordnung (HwO)<br />
+      Einsehbar unter: <a href="https://www.gesetze-im-internet.de/hwo/" rel="noreferrer">gesetze-im-internet.de</a>
     </p>
 
-    <h2>Verbraucherstreitbeilegung</h2>
-    <p>
-      Nach eigenen Angaben ist die Werkstatt zu einer Teilnahme an Streitbeilegungsverfahren vor
-      einer Verbraucherschlichtungsstelle weder bereit noch verpflichtet.
-    </p>
-
+    <h2>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
+    <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
   </article>
 </Layout>

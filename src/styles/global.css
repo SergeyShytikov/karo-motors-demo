@@ -21,6 +21,7 @@
   --display: "Barlow Semi Condensed", "Arial Narrow", sans-serif;
   --text: "Barlow", "Helvetica Neue", Arial, sans-serif;
   --radius: 6px;
+  --radius-lg: 14px;
   --header-h: 84px;
   color-scheme: light;
   font-family: var(--text);
@@ -52,7 +53,7 @@ button, a { touch-action: manipulation; }
 button { cursor: pointer; }
 img, svg { display: block; max-width: 100%; }
 .icon { width: 1.15em; height: 1.15em; flex: none; }
-.wrap { width: min(1240px, calc(100% - clamp(32px, 8vw, 128px))); margin-inline: auto; }
+.wrap { width: min(1320px, calc(100% - clamp(32px, 8vw, 128px))); margin-inline: auto; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 /* Buttons */
@@ -115,12 +116,19 @@ img, svg { display: block; max-width: 100%; }
 
 /* Closing band */
 .visit { color: #fff; background: var(--brand-fill); }
-.visit__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem clamp(2rem, 5vw, 5rem); align-items: flex-end; padding-block: clamp(2.75rem, 5.5vw, 4.75rem); }
-.visit h2 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); }
-.visit__phone { display: inline-block; margin-top: .35rem; font: 700 clamp(2.4rem, 5.6vw, 4.9rem)/1 var(--display); font-variant-numeric: tabular-nums; letter-spacing: -0.015em; text-decoration: none; white-space: nowrap; }
+.visit__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem clamp(2rem, 5vw, 5rem); align-items: center; padding-block: clamp(1.6rem, 3vw, 2.4rem); }
+.visit__lead { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem 1.25rem; }
+.visit h2 { font-size: clamp(1.3rem, 1.8vw, 1.6rem); }
+.visit__phone { display: inline-block; font: 700 clamp(1.7rem, 2.6vw, 2.3rem)/1 var(--display); font-variant-numeric: tabular-nums; letter-spacing: -0.015em; text-decoration: none; white-space: nowrap; }
 .visit__phone:hover { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: .12em; }
 .visit__actions { display: flex; flex-wrap: wrap; gap: .75rem; }
 .visit :focus-visible { outline-color: #fff; }
+
+/* Page header with photo (services, contact) */
+.page-hero__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: center; gap: clamp(1.5rem, 4.5vw, 4rem); padding-block: clamp(1.5rem, 3vw, 2.5rem); }
+.page-hero h1 { font-size: clamp(2.75rem, 5vw, 4.7rem); }
+.page-hero p { max-width: 34rem; margin-top: 1.1rem; color: var(--muted); font-size: clamp(1.06rem, 1.25vw, 1.2rem); }
+.page-hero__photo img { width: 100%; height: auto; aspect-ratio: 16 / 9; max-height: 22rem; object-fit: cover; border-radius: var(--radius-lg); }
 
 /* Footer */
 .footer { background: var(--mist); border-top: 1px solid var(--line); font-size: .95rem; }
@@ -182,6 +190,7 @@ img, svg { display: block; max-width: 100%; }
   .site-nav__contact .icon { margin-top: .2rem; color: var(--brand-text); }
   .site-nav__contact strong { color: var(--brand-text); font-weight: 600; }
   .visit__inner { flex-direction: column; align-items: stretch; }
+  .page-hero__grid { grid-template-columns: minmax(0, 1fr); padding-block: 1.75rem 1.5rem; }
   .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer__brand { grid-column: 1 / -1; }
 }

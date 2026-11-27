@@ -10,10 +10,16 @@ const hoursShort = workshop.hours.filter(entry => entry.short !== 'So').map(entr
 ---
 
 <Layout active="leistungen" title="Leistungen & Preise in Hennigsdorf" description="Leistungen und Einstiegspreise von KaRo Motors in Hennigsdorf: HU/AU mit der GTÜ, Inspektion, Diagnose, Bremsen, Fahrwerk, Reifen und mehr.">
-  <header class="svc-hero">
-    <div class="wrap">
-      <h1>Leistungen <em>&amp;&nbsp;Preise</em></h1>
-      <p>Alle Preise sind Einstiegspreise. Für den Preis Ihres Fahrzeugs rufen Sie uns an oder bitten Sie um einen Rückruf.</p>
+  <header class="page-hero">
+    <div class="wrap page-hero__grid">
+      <div>
+        <h1>Leistungen <em>&amp;&nbsp;Preise</em></h1>
+        <p>Alle Preise sind Einstiegspreise. Für den Preis Ihres Fahrzeugs rufen Sie uns an oder bitten Sie um einen Rückruf.</p>
+      </div>
+      <picture class="page-hero__photo">
+        <source media="(max-width: 40rem)" srcset="/media/tyre-service-small.webp" width="760" height="507" />
+        <img src="/media/tyre-service.webp" alt="Beispielfoto: Mechaniker prüft ein Rad an einem orangefarbenen Auto" width="1536" height="1024" fetchpriority="high" />
+      </picture>
     </div>
   </header>
 

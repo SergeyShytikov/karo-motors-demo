@@ -13,12 +13,20 @@ const callbackEmailHref = `${emailHref}?subject=${encodeURIComponent('Rückruf a
   description="KaRo Motors in Hennigsdorf erreichen. Telefonnummer, Öffnungszeiten und Anfahrt zur Kfz-Meisterwerkstatt."
   active="kontakt"
 >
-  <div class="inner-page">
-    <section class="wrap contact" aria-labelledby="contact-title">
-      <div class="inner-intro contact__intro">
+  <header class="page-hero">
+    <div class="wrap page-hero__grid">
+      <div>
         <h1 id="contact-title">Kontakt <em>&amp;&nbsp;Anfahrt</em></h1>
         <p>Rufen Sie uns an, planen Sie die Route oder bitten Sie um einen Rückruf.</p>
       </div>
+      <picture class="page-hero__photo">
+        <source media="(max-width: 40rem)" srcset="/media/wheel-bolts-small.webp" width="760" height="507" />
+        <img src="/media/wheel-bolts.webp" alt="Beispielfoto: Mechaniker löst die Radmuttern an einem Autoreifen" width="1536" height="1024" fetchpriority="high" />
+      </picture>
+    </div>
+  </header>
+  <div class="inner-page">
+    <section class="wrap contact" aria-labelledby="contact-title">
 
       <div class="contact-card">
         <div class="contact-details">

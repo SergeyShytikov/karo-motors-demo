@@ -12,6 +12,7 @@ const hoursShort = workshop.hours.filter(entry => entry.short !== 'So').map(entr
 ---
 <Layout active="home" title="Ihre Meisterwerkstatt in Hennigsdorf" description="KaRo Motors in Hennigsdorf. Werkstattleistungen mit Einstiegspreisen, HU/AU mit der GTÜ vor Ort. Termin telefonisch vereinbaren.">
   <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero__grid">
     <div class="hero__copy">
       <h1 id="hero-title"><span>Ihre Meisterwerkstatt</span> <em>in Hennigsdorf.</em></h1>
       <p class="hero__intro">{homeCopy.intro}</p>
@@ -29,6 +30,7 @@ const hoursShort = workshop.hours.filter(entry => entry.short !== 'So').map(entr
       <source media="(max-width: 40rem)" srcset="/media/workshop-lifts-small.webp" width="760" height="422" />
       <img src="/media/workshop-lifts.webp" alt="Beispielfoto: Autos auf Hebebühnen in einer Kfz-Werkstatt" width="1536" height="930" fetchpriority="high" />
     </picture>
+    </div>
   </section>
 
   <section class="board wrap" aria-labelledby="board-title">

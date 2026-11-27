@@ -6,9 +6,8 @@ const brands = [
   { name: 'Bosch', label: 'Bremsenteile', service: 'bremsenwechsel', file: 'bosch-logo.svg', width: 433, height: 97 },
 ];
 ---
-<section class="brands" aria-labelledby="marken">
+<section class="brands" aria-label="Marken und Prüfservice">
   <div class="wrap">
-    <h2 id="marken">Marken & Prüfservice</h2>
     <ul>
       {brands.map(brand => (
         <li><a href={`/leistungen/#${brand.service}`} aria-label={`${brand.name} – ${brand.label}`}>
@@ -21,8 +20,7 @@ const brands = [
 
 <style>
   .brands { padding-block: clamp(1.75rem, 3vw, 3rem); background: white; border-top: 1px solid var(--line); }
-  h2 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); }
-  ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1.2rem 0 0; padding: 0; list-style: none; }
+  ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
   li + li { border-inline-start: 1px solid var(--line); }
   a { display: grid; justify-items: center; padding: .5rem; }
   a:hover { background: var(--paper); }

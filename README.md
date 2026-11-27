@@ -21,12 +21,12 @@ Ein Push auf den Branch `demo` baut die Website mit GitHub Actions und veröffen
 
 ## Fotos
 
-Die Fotos illustrieren die Demo. Die Startseite zeigt oben zwei Autos auf Hebebühnen und weiter unten ein Notebook im Fahrzeuginnenraum. „Leistungen & Preise“ zeigt ein silbernes Coupé auf einer Hebebühne, „Kontakt & Anfahrt“ eine graue Limousine in einer hellen Halle. Alle Motive sind verkleinert und werden als WebP von derselben Website geladen.
+Die Fotos illustrieren die Demo. Die Startseite zeigt oben zwei Autos auf Hebebühnen und weiter unten ein Notebook im Fahrzeuginnenraum. „Leistungen & Preise“ zeigt ein Auto mit geöffneter Motorhaube zwischen Werkstattgeräten, „Kontakt & Anfahrt“ einen Schlagschrauber an der Radmutter. Alle Motive sind verkleinert und werden als WebP von derselben Website geladen.
 
 - Fahrzeuge auf Hebebühnen: [Jae Park auf Pexels](https://www.pexels.com/photo/cars-in-car-repair-shop-4756887/).
 - Notebook im Fahrzeug: [ThisIsEngineering auf Pexels](https://www.pexels.com/photo/engineer-testing-sound-system-3862610/).
-- Coupé auf der Hebebühne: [Vadym Kudriavtsev auf Unsplash](https://unsplash.com/photos/a-silver-car-on-a-lift-in-a-garage-R2BVAQcigEc).
-- Limousine in der Halle: [serjan midili auf Unsplash](https://unsplash.com/photos/a-silver-car-parked-in-a-garage-with-a-checkered-floor-j0Rofs1zRRg).
+- Auto in der Werkstatt: [serjan midili auf Unsplash](https://unsplash.com/photos/a-red-car-is-in-a-garage-for-repairs-7tqN3HvUswQ).
+- Schlagschrauber am Rad: [Tekton auf Unsplash](https://unsplash.com/photos/black-and-silver-car-wheel-O_ufcLVTAYw).
 
 Für die Pexels-Bilder gilt die [Pexels-Lizenz](https://www.pexels.com/license/), für die Unsplash-Bilder die [Unsplash-Lizenz](https://unsplash.com/license).
 
